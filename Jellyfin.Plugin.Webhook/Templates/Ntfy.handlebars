@@ -126,13 +126,13 @@
         "title": "Alert: {{{NotificationUsername}}}: Plugin {{{PluginName}}} installation failed!",
         "priority": 5,
         "tags": ["jigsaw", "x"],
-        "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }],
+        "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }]
     {{/if_equals}}
 
     {{#if_equals NotificationType 'PluginUpdated'}}
         "title": "{{{NotificationUsername}}}: Plugin {{{PluginName}}} was updated!",
         "priority": 3,
         "tags": ["jigsaw", "rocket"],
-        "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }],
+        "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }]
     {{/if_equals}}
 }
