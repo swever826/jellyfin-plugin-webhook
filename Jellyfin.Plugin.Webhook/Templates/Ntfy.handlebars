@@ -116,4 +116,18 @@
         "priority": 3,
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Message:** User session has started!"
     {{/if_equals}}
+
+    {{#if_equals NotificationType 'PluginInstallationFailed'}}
+        "title": "Alert: {{{NotificationUsername}}}: Plugin {{{PluginName}}} installation failed!",
+        "priority": 5,
+        "tags": ["jigsaw", "x"],
+        "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }],
+    {{/if_equals}}
+
+    {{#if_equals NotificationType 'PluginUpdated'}}
+        "title": "{{{NotificationUsername}}}: Plugin {{{PluginName}}} was updated!",
+        "priority": 3,
+        "tags": ["jigsaw", "rocket"],
+        "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }],
+    {{/if_equals}}
 }
