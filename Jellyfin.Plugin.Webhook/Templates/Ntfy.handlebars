@@ -90,30 +90,35 @@
     {{#if_equals NotificationType 'PendingRestart'}}
         "title": "Jellyfin Restart Required",
         "priority": 4,
+        "tags": ["gear", "arrows_counterclockwise"],
         "message": "---\n**- Message:** Jellyfin needs to be restarted, please restart jellyfin as soon as possible!"
     {{/if_equals}}
 
     {{#if_equals NotificationType 'AuthenticationFailure'}}
         "title": "Alert: {{{Username}}}: Authentication Failure",
         "priority": 5,
+        "tags": ["bust_in_silhouette", "x"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Issue:** Login request was denied: Wrong password!"
     {{/if_equals}}
 
     {{#if_equals NotificationType 'AuthenticationSuccess'}}
         "title": "{{{NotificationUsername}}}: Authentication Success",
         "priority": 3,
+        "tags": ["bust_in_silhouette", "white_check_mark"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Message:** Successfully logged in!"
     {{/if_equals}}
 
     {{#if_equals NotificationType 'UserLockedOut'}}
         "title": "Alert: {{{NotificationUsername}}}: User Locked Out",
         "priority": 5,
+        "tags": ["bust_in_silhouette", "no_entry_sign"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Issue:** User has been locked out!"
     {{/if_equals}}
 
     {{#if_equals NotificationType 'SessionStart'}}
         "title": "Alert: {{{NotificationUsername}}}: User Session Started",
         "priority": 3,
+        "tags": ["bust_in_silhouette", "stopwatch"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Message:** User session has started!"
     {{/if_equals}}
 
