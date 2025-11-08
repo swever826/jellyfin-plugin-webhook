@@ -16,6 +16,7 @@
     "topic": "jellyfin",
     {{#if_equals NotificationType 'PlaybackStart'}}
         "priority": 2,
+        "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
         "attach": "{{{ServerUrl}}}/Items/{{{ItemId}}}/Images/Primary",
         "actions": [{ "action": "view", "label": "Visit Jellyfin", "url": "{{{ServerUrl}}}/web/#/details?id={{ItemId}}" }],
             {{#if_equals ItemType 'Audio'}}
@@ -37,6 +38,7 @@
 
     {{#if_equals NotificationType 'PlaybackStop'}}
         "priority": 2,
+        "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
         "attach": "{{{ServerUrl}}}/Items/{{{ItemId}}}/Images/Primary",
         "actions": [{ "action": "view", "label": "Visit Jellyfin", "url": "{{{ServerUrl}}}/web/#/details?id={{ItemId}}" }],
             {{#if_equals ItemType 'Audio'}}
@@ -59,6 +61,7 @@
 
     {{#if_equals NotificationType 'ItemAdded'}}
     "priority": 3,
+    "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
     "attach": "{{{ServerUrl}}}/Items/{{{ItemId}}}/Images/Primary",
     "actions": [{ "action": "view", "label": "Visit Jellyfin", "url": "{{{ServerUrl}}}/web/#/details?id={{ItemId}}" }],
         {{#if_equals ItemType 'Audio'}}
@@ -100,6 +103,7 @@
     {{#if_equals NotificationType 'PendingRestart'}}
         "title": "Jellyfin Restart Required",
         "priority": 4,
+        "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
         "tags": ["gear", "arrows_counterclockwise"],
         "message": "---\n**- Message:** Jellyfin needs to be restarted, please restart jellyfin as soon as possible!"
     {{/if_equals}}
@@ -108,6 +112,7 @@
     {{#if_equals NotificationType 'AuthenticationFailure'}}
         "title": "{{{NotificationUsername}}} Failed to Authenticate",
         "priority": 5,
+        "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
         "tags": ["bust_in_silhouette", "x"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Issue:** Login request was denied: Wrong password!"
     {{/if_equals}}
@@ -115,6 +120,7 @@
     {{#if_equals NotificationType 'AuthenticationSuccess'}}
         "title": "{{{NotificationUsername}}} Authenticated Successfully",
         "priority": 3,
+        "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
         "tags": ["bust_in_silhouette", "white_check_mark"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Message:** Successfully logged in!"
     {{/if_equals}}
@@ -122,6 +128,7 @@
     {{#if_equals NotificationType 'UserLockedOut'}}
         "title": "{{{NotificationUsername}}} Locked Out",
         "priority": 5,
+        "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
         "tags": ["bust_in_silhouette", "no_entry_sign"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Issue:** User has been locked out!"
     {{/if_equals}}
@@ -129,6 +136,7 @@
     {{#if_equals NotificationType 'SessionStart'}}
         "title": "{{{NotificationUsername}}} Logged In",
         "priority": 3,
+        "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
         "tags": ["bust_in_silhouette", "key"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Message:** User session has started!"
     {{/if_equals}}
@@ -137,6 +145,7 @@
     {{#if_equals NotificationType 'PluginInstallationFailed'}}
         "title": "Plugin {{{PluginName}}} Installation Failed",
         "priority": 5,
+        "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
         "tags": ["jigsaw", "x"],
         "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }]
     {{/if_equals}}
@@ -144,6 +153,7 @@
     {{#if_equals NotificationType 'PluginUpdated'}}
         "title": "Plugin {{{PluginName}}} Updated",
         "priority": 3,
+        "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
         "tags": ["jigsaw", "rocket"],
         "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }]
     {{/if_equals}}
@@ -151,6 +161,7 @@
     {{#if_equals NotificationType 'SubtitleDownloadFailure'}}
         "title": "Subtitle Download for {{{Name}}} Failed",
         "priority": 5,
+        "icon": "{{{ServerUrl}}}/web/touchicon.f5bbb798cb2c65908633.png",
         "tags": ["speech_balloon", "x"],
         "actions": [{ "action": "view", "label": "Visit Jellyfin", "url": "{{{ServerUrl}}}/web/#/details?id={{ItemId}}" }]
     {{/if_equals}}
