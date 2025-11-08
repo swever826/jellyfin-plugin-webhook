@@ -110,4 +110,10 @@
         "priority": 5,
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Issue:** User has been locked out!"
     {{/if_equals}}
+
+    {{#if_equals NotificationType 'SessionStart'}}
+        "title": "Alert: {{{NotificationUsername}}}: User Session Started",
+        "priority": 3,
+        "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Message:** User session has started!"
+    {{/if_equals}}
 }
