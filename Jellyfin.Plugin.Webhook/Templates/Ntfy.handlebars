@@ -16,38 +16,42 @@
     "topic": "jellyfin",
     {{#if_equals NotificationType 'PlaybackStart'}}
         "priority": 2,
-        "tags": ["arrow_forward"],
         "attach": "{{{ServerUrl}}}/Items/{{{ItemId}}}/Images/Primary",
         "actions": [{ "action": "view", "label": "Visit Jellyfin", "url": "{{{ServerUrl}}}/web/#/details?id={{ItemId}}" }],
             {{#if_equals ItemType 'Audio'}}
-                "title": "{{{NotificationUsername}}} | Playback started: {{{Artist}}} - {{{Name}}} ({{Year}})",
-                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback started\n**- Play Method:** {{{PlayMethod}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Artist:** {{{Artist}}}\n**- Track:** {{{Name}}}\n**- Album:** {{{Album}}} ({{Year}})\n**- Runtime:** {{RunTime}}"
+                "title": "{{{NotificationUsername}}} Started Listening {{{Artist}}} - {{{Name}}} ({{Year}})",
+                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback started\n**- Play Method:** {{{PlayMethod}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Artist:** {{{Artist}}}\n**- Track:** {{{Name}}}\n**- Album:** {{{Album}}} ({{Year}})\n**- Runtime:** {{RunTime}}",
+                "tags": ["musical_note", "arrow_forward"]
             {{else}}
             {{#if_equals ItemType 'Episode'}}
-                "title": "{{{NotificationUsername}}} | Playback started: {{{SeriesName}}} ({{Year}}) - S{{SeasonNumber00}}E{{EpisodeNumber00}}",
-                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback started\n**- Play Method:** {{{PlayMethod}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Series:** {{{SeriesName}}} ({{Year}})\n**- Episode:** S{{SeasonNumber00}}E{{EpisodeNumber00}} - {{{Name}}}\n**- Runtime:** {{RunTime}}\n\n**- Description:**\n{{{Overview}}}"
+                "title": "{{{NotificationUsername}}} Started Watching {{{SeriesName}}} ({{Year}}) - S{{SeasonNumber00}}E{{EpisodeNumber00}}",
+                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback started\n**- Play Method:** {{{PlayMethod}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Series:** {{{SeriesName}}} ({{Year}})\n**- Episode:** S{{SeasonNumber00}}E{{EpisodeNumber00}} - {{{Name}}}\n**- Runtime:** {{RunTime}}\n\n**- Description:**\n{{{Overview}}}",
+                "tags": ["tv", "arrow_forward"]
             {{else}}
-                "title": "{{{NotificationUsername}}} | Playback started: {{{Name}}} ({{Year}})",
-                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback started\n**- Play Method:** {{{PlayMethod}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Movie:** {{{Name}}} ({{Year}})\n**- Runtime:** {{RunTime}}\n\n**- Description:**\n{{{Overview}}}"
+                "title": "{{{NotificationUsername}}} Started Watching {{{Name}}} ({{Year}})",
+                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback started\n**- Play Method:** {{{PlayMethod}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Movie:** {{{Name}}} ({{Year}})\n**- Runtime:** {{RunTime}}\n\n**- Description:**\n{{{Overview}}}",
+                "tags": ["film_projector", "arrow_forward"]
             {{/if_equals}}
             {{/if_equals}}
     {{/if_equals}}
 
     {{#if_equals NotificationType 'PlaybackStop'}}
         "priority": 2,
-        "tags": ["stop_button"],
         "attach": "{{{ServerUrl}}}/Items/{{{ItemId}}}/Images/Primary",
         "actions": [{ "action": "view", "label": "Visit Jellyfin", "url": "{{{ServerUrl}}}/web/#/details?id={{ItemId}}" }],
             {{#if_equals ItemType 'Audio'}}
-                "title": "{{{NotificationUsername}}} | Playback stopped: {{{Artist}}} - {{{Name}}} ({{Year}})",
-                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback stopped\n**- Played To Completion:** {{{PlayedToCompletion}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Artist:** {{{Artist}}}\n**- Track:** {{{Name}}}\n**- Album:** {{{Album}}} ({{Year}})\n**- Runtime:** {{RunTime}}"
+                "title": "{{{NotificationUsername}}} Stopped Watching {{{Artist}}} - {{{Name}}} ({{Year}})",
+                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback stopped\n**- Played To Completion:** {{{PlayedToCompletion}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Artist:** {{{Artist}}}\n**- Track:** {{{Name}}}\n**- Album:** {{{Album}}} ({{Year}})\n**- Runtime:** {{RunTime}}",
+                "tags": ["musical_note", "stop_button"]
             {{else}}
             {{#if_equals ItemType 'Episode'}}
-                "title": "{{{NotificationUsername}}} | Playback stopped: {{{SeriesName}}} ({{Year}}) - S{{SeasonNumber00}}E{{EpisodeNumber00}}",
-                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback stopped\n**- Played To Completion:** {{{PlayedToCompletion}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Series:** {{{SeriesName}}} ({{Year}})\n**- Episode:** S{{SeasonNumber00}}E{{EpisodeNumber00}} - {{{Name}}}\n**- Runtime:** {{RunTime}}\n\n**- Description:**\n{{{Overview}}}"
+                "title": "{{{NotificationUsername}}} Stopped Watching {{{SeriesName}}} ({{Year}}) - S{{SeasonNumber00}}E{{EpisodeNumber00}}",
+                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback stopped\n**- Played To Completion:** {{{PlayedToCompletion}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Series:** {{{SeriesName}}} ({{Year}})\n**- Episode:** S{{SeasonNumber00}}E{{EpisodeNumber00}} - {{{Name}}}\n**- Runtime:** {{RunTime}}\n\n**- Description:**\n{{{Overview}}}",
+                "tags": ["tv", "stop_button"]
             {{else}}
-                "title": "{{{NotificationUsername}}} | Playback stopped: {{{Name}}} ({{Year}})",
-                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback stopped\n**- Played To Completion:** {{{PlayedToCompletion}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Movie:** {{{Name}}} ({{Year}})\n**- Runtime:** {{RunTime}}\n\n**- Description:**\n{{{Overview}}}"
+                "title": "{{{NotificationUsername}}} Stopped Watching {{{Name}}} ({{Year}})",
+                "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback stopped\n**- Played To Completion:** {{{PlayedToCompletion}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Movie:** {{{Name}}} ({{Year}})\n**- Runtime:** {{RunTime}}\n\n**- Description:**\n{{{Overview}}}",
+                "tags": ["film_projector", "stop_button"]
             {{/if_equals}}
             {{/if_equals}}
     {{/if_equals}}
@@ -55,31 +59,36 @@
 
     {{#if_equals NotificationType 'ItemAdded'}}
     "priority": 3,
-    "tags": ["heavy_plus_sign"],
     "attach": "{{{ServerUrl}}}/Items/{{{ItemId}}}/Images/Primary",
     "actions": [{ "action": "view", "label": "Visit Jellyfin", "url": "{{{ServerUrl}}}/web/#/details?id={{ItemId}}" }],
         {{#if_equals ItemType 'Audio'}}
-            "title": "Audio Track Added: {{{Artist}}} - {{{Name}}} | {{{Album}}} ({{Year}})",
-            "message": "---\n**- Artist:** {{{Artist}}}\n**- Track:** {{{Name}}}\n**- Album:** {{{Album}}} ({{Year}})\n**- Runtime:** {{RunTime}}\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}"
+            "title": "New Song: {{{Artist}}} - {{{Name}}} | {{{Album}}} ({{Year}})",
+            "message": "---\n**- Artist:** {{{Artist}}}\n**- Track:** {{{Name}}}\n**- Album:** {{{Album}}} ({{Year}})\n**- Runtime:** {{RunTime}}\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}",
+            "tags": ["musical_note", "heavy_plus_sign"]
         {{else}}
         {{#if_equals ItemType 'MusicAlbum'}}
-            "title": "Album Added: {{{Artist}}} - {{{Name}}} ({{Year}})",
-            "message": "---\n**- Artist:** {{{Artist}}}\n**- Album:** {{{Name}}} ({{Year}})\n**- Runtime:** {{RunTime}}\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}"
+            "title": "New Album: {{{Artist}}} - {{{Name}}} ({{Year}})",
+            "message": "---\n**- Artist:** {{{Artist}}}\n**- Album:** {{{Name}}} ({{Year}})\n**- Runtime:** {{RunTime}}\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}",
+            "tags": ["musical_note", "heavy_plus_sign"]
         {{else}}
         {{#if_equals ItemType 'Movie'}}
-            "title": "Movie Added: {{{Name}}} ({{Year}})",
-            "message": "---\n**- Movie:** {{{Name}}} ({{Year}})\n**- Runtime:** {{RunTime}}\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}"
+            "title": "New Movie: {{{Name}}} ({{Year}})",
+            "message": "---\n**- Movie:** {{{Name}}} ({{Year}})\n**- Runtime:** {{RunTime}}\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}",
+            "tags": ["film_projector", "heavy_plus_sign"]
         {{else}}
         {{#if_equals ItemType 'Season'}}
-            "title": "Season Added: {{{SeriesName}}} ({{Year}}) - S{{SeasonNumber00}}",
-            "message": "---\n**- Series:** {{{SeriesName}}} ({{Year}})\n**- Season:** {{{Name}}}\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}"
+            "title": "New Season: {{{SeriesName}}} ({{Year}}) - S{{SeasonNumber00}}",
+            "message": "---\n**- Series:** {{{SeriesName}}} ({{Year}})\n**- Season:** {{{Name}}}\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}",
+            "tags": ["tv", "heavy_plus_sign"]
         {{else}}
         {{#if_equals ItemType 'Series'}}
-            "title": "Series Added: {{Name}} ({{Year}})",
-            "message": "---\n**- Series:** {{Name}} ({{Year}})\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}"
+            "title": "New Show: {{Name}} ({{Year}})",
+            "message": "---\n**- Series:** {{Name}} ({{Year}})\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}",
+            "tags": ["tv", "heavy_plus_sign"]
         {{else}}
-            "title": "Episode Added: {{{SeriesName}}} ({{Year}}) - S{{SeasonNumber00}}E{{EpisodeNumber00}}",
-            "message": "---\n**- Series:** {{{SeriesName}}} ({{Year}})\n**- Episode:** S{{SeasonNumber00}}E{{EpisodeNumber00}} - {{{Name}}}\n**- Runtime:** {{RunTime}}\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}"
+            "title": "New Episode: {{{SeriesName}}} ({{Year}}) - S{{SeasonNumber00}}E{{EpisodeNumber00}}",
+            "message": "---\n**- Series:** {{{SeriesName}}} ({{Year}})\n**- Episode:** S{{SeasonNumber00}}E{{EpisodeNumber00}} - {{{Name}}}\n**- Runtime:** {{RunTime}}\n**- Status:** Available\n\n**- Description:**\n{{{Overview}}}",
+            "tags": ["tv", "heavy_plus_sign"]
         {{/if_equals}}
         {{/if_equals}}
         {{/if_equals}}
@@ -97,50 +106,52 @@
 
 
     {{#if_equals NotificationType 'AuthenticationFailure'}}
-        "title": "Alert: {{{Username}}}: Authentication Failure",
+        "title": "{{{NotificationUsername}}} Failed to Authenticate",
         "priority": 5,
         "tags": ["bust_in_silhouette", "x"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Issue:** Login request was denied: Wrong password!"
     {{/if_equals}}
 
     {{#if_equals NotificationType 'AuthenticationSuccess'}}
-        "title": "{{{NotificationUsername}}}: Authentication Success",
+        "title": "{{{NotificationUsername}}} Authenticated Successfully",
         "priority": 3,
         "tags": ["bust_in_silhouette", "white_check_mark"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Message:** Successfully logged in!"
     {{/if_equals}}
 
     {{#if_equals NotificationType 'UserLockedOut'}}
-        "title": "Alert: {{{NotificationUsername}}}: User Locked Out",
+        "title": "{{{NotificationUsername}}} Locked Out",
         "priority": 5,
         "tags": ["bust_in_silhouette", "no_entry_sign"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Issue:** User has been locked out!"
     {{/if_equals}}
 
     {{#if_equals NotificationType 'SessionStart'}}
-        "title": "Alert: {{{NotificationUsername}}}: User Session Started",
+        "title": "{{{NotificationUsername}}} Logged In",
         "priority": 3,
-        "tags": ["bust_in_silhouette", "stopwatch"],
+        "tags": ["bust_in_silhouette", "key"],
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Message:** User session has started!"
     {{/if_equals}}
 
 
     {{#if_equals NotificationType 'PluginInstallationFailed'}}
-        "title": "Alert: {{{NotificationUsername}}}: Plugin {{{PluginName}}} installation failed!",
+        "title": "Plugin {{{PluginName}}} Installation Failed",
         "priority": 5,
         "tags": ["jigsaw", "x"],
         "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }]
     {{/if_equals}}
 
     {{#if_equals NotificationType 'PluginUpdated'}}
-        "title": "{{{NotificationUsername}}}: Plugin {{{PluginName}}} was updated!",
+        "title": "Plugin {{{PluginName}}} Updated",
         "priority": 3,
         "tags": ["jigsaw", "rocket"],
         "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }]
     {{/if_equals}}
 
     {{#if_equals NotificationType 'SubtitleDownloadFailure'}}
-        "title": "Alert: {{{NotificationUsername}}}: Subtitle download for {{{Name}}} failed!",
+        "title": "Subtitle Download for {{{Name}}} Failed",
         "priority": 5,
-        "tags": ["speech_balloon", "x"]
+        "tags": ["speech_balloon", "x"],
+        "actions": [{ "action": "view", "label": "Visit Jellyfin", "url": "{{{ServerUrl}}}/web/#/details?id={{ItemId}}" }]
+    {{/if_equals}}
 }
