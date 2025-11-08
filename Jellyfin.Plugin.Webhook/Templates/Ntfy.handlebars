@@ -87,12 +87,14 @@
         {{/if_equals}}
     {{/if_equals}}
 
+
     {{#if_equals NotificationType 'PendingRestart'}}
         "title": "Jellyfin Restart Required",
         "priority": 4,
         "tags": ["gear", "arrows_counterclockwise"],
         "message": "---\n**- Message:** Jellyfin needs to be restarted, please restart jellyfin as soon as possible!"
     {{/if_equals}}
+
 
     {{#if_equals NotificationType 'AuthenticationFailure'}}
         "title": "Alert: {{{Username}}}: Authentication Failure",
@@ -122,6 +124,7 @@
         "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Message:** User session has started!"
     {{/if_equals}}
 
+
     {{#if_equals NotificationType 'PluginInstallationFailed'}}
         "title": "Alert: {{{NotificationUsername}}}: Plugin {{{PluginName}}} installation failed!",
         "priority": 5,
@@ -135,4 +138,9 @@
         "tags": ["jigsaw", "rocket"],
         "actions": [{ "action": "view", "label": "Visit Plugin", "url": "{{{PluginSourceUrl}}}" }]
     {{/if_equals}}
+
+    {{#if_equals NotificationType 'SubtitleDownloadFailure'}}
+        "title": "Alert: {{{NotificationUsername}}}: Subtitle download for {{{Name}}} failed!",
+        "priority": 5,
+        "tags": ["speech_balloon", "x"]
 }
