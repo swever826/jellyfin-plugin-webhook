@@ -47,7 +47,7 @@
                 "tags": ["musical_note"]
             {{else}}
             {{#if_equals ItemType 'Episode'}}
-                "title": "{{{NotificationUsername}}} stopped {{{SeriesName}}} ({{Year}}) - S{{SeasonNumber00}}E{{EpisodeNumber00}}",
+                "title": "{{{NotificationUsername}}} Stopped: {{{SeriesName}}} ({{Year}}) - S{{SeasonNumber00}}E{{EpisodeNumber00}}",
                 "message": "---\n**- User:** {{{NotificationUsername}}}\n**- Device/Client:** {{{DeviceName}}} - {{{ClientName}}}\n**- IP Address:** {{{RemoteEndPoint}}}\n**- Action:** Playback stopped\n**- Played To Completion:** {{{PlayedToCompletion}}}\n**- Playback Position:** {{{PlaybackPosition}}}\n\n**- Series:** {{{SeriesName}}} ({{Year}})\n**- Episode:** S{{SeasonNumber00}}E{{EpisodeNumber00}} - {{{Name}}}\n**- Runtime:** {{RunTime}}\n\n**- Description:**\n{{{Overview}}}",
                 "tags": ["tv"]
             {{else}}
